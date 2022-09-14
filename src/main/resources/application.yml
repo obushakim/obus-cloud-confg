@@ -1,0 +1,44 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: obus-cloud-config
+  cloud:
+    config:
+      enabled: false
+      server:
+        git:
+          username: obushakim
+          password: 'Fucking13'
+          clone-on-start: 'true'
+          uri: https://gitlab.com/obushakim/obus-configuration.git
+          default-label: main
+          search-paths: obus-contoh-ms,obus-tutorial,obus-tutorial-dua
+          enabled: 'false'
+  profiles:
+    active: local,development,production
+  security:
+    user:
+      name: user
+      password: password
+  
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+  
+health:
+  config:
+    enabled: 'false'
+management:
+  security:
+    enabled: 'false'
+    
+security:
+  user:
+    name: user
+    password: password
