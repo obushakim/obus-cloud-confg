@@ -3,6 +3,7 @@ pipeline {
 
 	environment {
 		OBUS = 'obus'
+		GITHUB_CRED = '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'
 	}
 	
     tools {
@@ -14,7 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/obushakim/obus-cloud-confg.git'
+                git url: 'https://github.com/obushakim/obus-cloud-confg.git', branch: 'main', credentialsId: 'github-obus'
 
                 // Run Maven on a Unix agent.
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
