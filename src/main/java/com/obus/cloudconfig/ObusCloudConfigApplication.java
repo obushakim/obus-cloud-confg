@@ -15,7 +15,7 @@ public class ObusCloudConfigApplication {
 		SpringApplication.run(ObusCloudConfigApplication.class, args);
 	}
 
-	@GetMapping
+	@GetMapping("/test")
 	public String index() {
 		return "obus cloud config index";
 	}
